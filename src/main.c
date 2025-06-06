@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:18:34 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/06 02:06:55 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/06 02:14:04 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char *argv[])
 		const_i = ft_julia_parse(argv[2], argv[3]);
 	}
 	else
-	{
-		ft_printf(COLOR_BRIGHT_MAGENTA EXPECTED_OUTP COLOR_RESET);
-	}
+		return (ft_printf(COLOR_BRIGHT_MAGENTA EXPECTED_OUTP COLOR_RESET), \
+				1);
 }

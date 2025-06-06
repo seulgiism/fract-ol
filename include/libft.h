@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/05 17:27:48 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/06 01:52:07 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 // (ft_stdlib)
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
+double	ft_atod(const char *nptr);
 
 // (ft_files)
 void	ft_putchar_fd(char c, int fd);

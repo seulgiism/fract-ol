@@ -9,7 +9,7 @@ DIR_SRC		:= ./src
 DIR_LBFT	:= ./libft
 
 MAIN		:= src/main.c
-SRC_FRACT	:= julia.c #mandelbrot.c \
+SRC_FRACT	:= julia_input.c #mandelbrot.c \
 				math_utils.c color.c\#
 
 OBJ_FRACT	:= $(addprefix $(DIR_SRC)/, $(SRC_FRACT:.c=.o))

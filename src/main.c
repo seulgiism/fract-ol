@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:18:34 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/05 20:26:50 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/06 02:06:55 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 
 int	main(int argc, char *argv[])
 {
+	t_nbr_i	const_i;
+
 	if (argc == 2 && ft_streq("mandelbrot", argv[1], true))
 	{
-		ft_printf("MANDEL!");
+		
 	}
-	else if (argc == 3 && ft_streq("julia", argv[1], true) \
-			&& ft_valid_nbr(argv[2], argv[3]))
+	else if (argc == 4 && ft_streq("julia", argv[1], true) \
+			&& ft_valid_real(argv[2]) && ft_valid_imag(argv[3]))
 	{
-		ft_printf("JULIA!");
+		const_i = ft_julia_parse(argv[2], argv[3]);
 	}
 	else
 	{

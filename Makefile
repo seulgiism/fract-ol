@@ -1,7 +1,7 @@
 
 NAME		:= fractol
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -lm 
 INCLUDE		:= -I./include
 DFLAGS		:= -g -fsanitize=address -fsanitize=leak
 

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/07 18:40:43 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/07 19:42:05 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ int		valid_real(const char *real);
 t_nbr_i	julia_parse(const char *real, const char *imag);
 
 // colors.c + colors_utils.c
+typedef struct s_rgb
+{
+	double	red;
+	double	grn;
+	double	blu;
+}	t_rgb;
+
 void	get_init_hsv(double *hue, double *sat, double *val, \
 						double *hue_spread);
 

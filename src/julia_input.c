@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:25:47 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/06 02:00:32 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/07 18:13:30 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_printf.h"
 
 // 1. checks if imag is valid
-int	ft_valid_imag(const char *imag)
+int	valid_imag(const char *imag)
 {
 	int	dot_count;
 
@@ -34,7 +34,7 @@ int	ft_valid_imag(const char *imag)
 }
 
 // 1. checks if real is valid
-int	ft_valid_real(const char *real)
+int	valid_real(const char *real)
 {
 	int	dot_count;
 	
@@ -54,7 +54,7 @@ int	ft_valid_real(const char *real)
 
 //1. atod
 //2. get real and imaginary
-t_nbr_i	ft_julia_parse(const char *real, const char *imag)
+t_nbr_i	julia_parse(const char *real, const char *imag)
 {
 	t_nbr_i	nbr_i;
 

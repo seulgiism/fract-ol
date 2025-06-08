@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 19:06:02 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/08 19:59:36 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,27 @@ static void	generate_palette(uint32_t palette[])
 	}
 }
 
-static uint8_t lerp_byte()
+uint32_t lerp_color(uint32_t color1, uint32_t color2, \
+							double inter_pol)
 {
-	
+	t_rgb_uint8	rgb1;
+	t_rgb_uint8	rgb2;
+	t_rgb_uint8 rgb_final;
+
+	rgb1 = get_rgb_uint8(color1);
+	rgb2 = get_rgb_uint8(color2);
+	rgb_final.red = lerp_byte(rgb1.red, rgb2.red, inter_pol);
+	rgb_final.grn = lerp_byte(rgb1.grn, rgb2.grn, inter_pol);
+	rgb_final.blu = lerp_byte(rgb1.blu, rgb2.blu, inter_pol);
+	return (get_rgb_uint32(rgb_final));
 }
 
 // #include <stdio.h>
 // int main(void)
 // {
-// 	double hi = 17.6;
-// 	double cutoff = hi - ((int)hi);
-// 	printf("%lf", cutoff);
+// 	uint32_t red = 0xFF0000FF;
+// 	uint32_t green = 0x00FF00FF;
+// 	uint32_t mix = lerp_color(red, green, 0.5);
+// 	printf("%.8X", mix);
 // }
+//

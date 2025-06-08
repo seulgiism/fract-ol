@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 19:59:36 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/08 20:03:33 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	generate_palette(uint32_t palette[])
 	}
 }
 
-uint32_t lerp_color(uint32_t color1, uint32_t color2, \
+static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
 							double inter_pol)
 {
 	t_rgb_uint8	rgb1;

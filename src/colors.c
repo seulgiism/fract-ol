@@ -6,17 +6,16 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 18:24:47 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/08 19:06:02 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "fractol_utils.h"
 #include <stddef.h>
 #include <stdint.h>
 
 static void	generate_palette(uint32_t palette[]);
-static void	get_init_hsv(double *hue, double *sat, double *val, \
-						double *hue_spread);
 
 uint32_t get_color(int iters, int z)
 {
@@ -45,3 +44,16 @@ static void	generate_palette(uint32_t palette[])
 		hue += hue_spread;
 	}
 }
+
+static uint8_t lerp_byte()
+{
+	
+}
+
+// #include <stdio.h>
+// int main(void)
+// {
+// 	double hi = 17.6;
+// 	double cutoff = hi - ((int)hi);
+// 	printf("%lf", cutoff);
+// }

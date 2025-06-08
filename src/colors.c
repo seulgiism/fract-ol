@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/07 18:41:58 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/08 18:24:47 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	generate_palette(uint32_t palette[])
 	sat = SAT;
 	val = VAL;
 	get_init_hsv(&hue, &sat, &val, &hue_spread);
+	i = 0;
 	while (i < PALETTE_SIZE)
 	{
 		palette[i++] = hsv_to_rgb(hue, sat, val);

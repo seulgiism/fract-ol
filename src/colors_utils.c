@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/07 20:11:06 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/08 18:19:27 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ uint32_t	hsv_to_rgb(double hue, double sat, double val)
 	min = val - chroma;
 	mid_rgb = chroma * (1 - fabs(fmod(hue / 60.0, 2) - 1));
 	rgb = get_rgb(chroma, mid_rgb, hue);
-	red = (uint8_t)((rgb.red + min) * 255);
-	grn = (uint8_t)((rgb.grn + min) * 255);
-	blu = (uint8_t)((rgb.blu + min) * 255);
+	red = (uint8_t)((rgb.red + min) * 255 + 0.5);
+	grn = (uint8_t)((rgb.grn + min) * 255 + 0.5);
+	blu = (uint8_t)((rgb.blu + min) * 255 + 0.5);
 	return (red << 24 | grn << 16 | blu << 8 | 255);
 }
 
@@ -134,6 +134,9 @@ int main(int argc, char *argv[])
 	hue = ft_atod(argv[1]);
 	sat = ft_atod(argv[2]);
 	val = ft_atod(argv[3]);
+	printf("hue: %lf\n", hue);
+	printf("sat: %lf\n", sat);
+	printf("val: %lf\n", val);
 	COLOR = hsv_to_rgb(hue, sat, val);
 	printf("%.8X\n", COLOR);
 }

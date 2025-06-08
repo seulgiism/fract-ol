@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 20:03:33 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/08 20:13:19 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,29 @@
 #include "fractol_utils.h"
 #include <stddef.h>
 #include <stdint.h>
+#include <math.h>
 
 static void	generate_palette(uint32_t palette[]);
+static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
+							double inter_pol);
 
 uint32_t get_color(int iters, int z)
 {
 	static uint32_t palette[PALETTE_SIZE] = {0};
+	double			palette_i_fract;
+	int				palette_i_base;
+	double			palette_i_leftover;
+	uint32_t		color1;
+	uint32_t		color2;
 	
 	if (palette[0] == 0)
 		generate_palette(palette);
+	palette_i_fract = iters + 1 - log(log(abs(z))) / log(2);
+	palette_i_base = (int)palette_i_fract;
+	palette_i_leftover = palette_i_fract - palette_i_base;
+	color1 = palette[palette_i_base & PALETTE_SIZE];
+	color1 = palette[(palette_i_base + 1) & PALETTE_SIZE];
+	return (lerp_color(color1, color2, palette_i_leftover));
 }
 
 static void	generate_palette(uint32_t palette[])

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/09 20:06:08 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/09 20:09:17 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static t_palette_i	get_palette_index(int iters, t_nbr_i z);
 static uint32_t		lerp_color(uint32_t color1, uint32_t color2, \
 								double inter_pol);
 
-#include <stdio.h>
 uint32_t get_color(int iters, t_nbr_i nbr_i)
 {
 	static uint32_t palette[PALETTE_SIZE] = {0};
@@ -33,25 +32,9 @@ uint32_t get_color(int iters, t_nbr_i nbr_i)
 	if (palette[0] == 0)
 		generate_palette(palette);
 	palette_i = get_palette_index(iters, nbr_i);
-	printf("palette_i: %f\n", palette_i.fract);
 	color1 = palette[palette_i.base & (PALETTE_SIZE - 1)];
 	color2 = palette[(palette_i.base + 1) & (PALETTE_SIZE - 1)];
-	printf("col1: %.8X, col2: %.8X\n\n", color1, color2);
 	return (lerp_color(color1, color2, palette_i.leftover));
-}
-
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-	if (argc != 4)
-		return (1);
-	int iters = ft_atoi(argv[1]);
-	t_nbr_i z;
-	z.real = ft_atod(argv[2]);
-	z.imag = ft_atod(argv[3]);
-	printf("iters: %i, z.real: %f, z.imag: %f\n\n", iters, z.real, z.imag);
-	uint32_t color = get_color(iters, z);
-	printf("get-color: %.8X\n", color);
 }
 
 static void	generate_palette(uint32_t palette[])
@@ -104,6 +87,19 @@ static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
 	return (get_rgb_uint32(rgb_final));
 }
 
+// #include <stdio.h>
+// int main(int argc, char *argv[])
+// {
+// 	if (argc != 4)
+// 		return (1);
+// 	int iters = ft_atoi(argv[1]);
+// 	t_nbr_i z;
+// 	z.real = ft_atod(argv[2]);
+// 	z.imag = ft_atod(argv[3]);
+// 	printf("iters: %i, z.real: %f, z.imag: %f\n\n", iters, z.real, z.imag);
+// 	uint32_t color = get_color(iters, z);
+// 	printf("get-color: %.8X\n", color);
+// }
 // #include <stdio.h>
 // int main(void)
 // {

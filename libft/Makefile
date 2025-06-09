@@ -13,7 +13,8 @@ SRC_LBFT	:= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 				ft_strdup.c ft_str_mallocpy.c ft_substr.c ft_strjoin.c \
 				ft_strtrim.c ft_split.c ft_atoi.c ft_isdigit.c ft_itoa.c ft_strmapi.c \
 				ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-				ft_putnbr_fd.c ft_strlower.c ft_streq.c ft_atod.c
+				ft_putnbr_fd.c ft_strlower.c ft_streq.c ft_atod.c \
+				ft_abs.c
 
 SRC_LKDLST	:= ft_lst_add.c ft_lst_del.c ft_lst_manage.c \
 				ft_lst_get.c ft_lst_getcont.c

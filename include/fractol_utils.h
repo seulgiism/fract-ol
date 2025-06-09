@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 19:37:27 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/09 18:39:30 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdint.h>
 
-# define EXPECTED_OUTP "expected outputs:\n \
+# define EXPECTED_INPT "[EXPECTED INPUTS]:\n \
 1. ./fractol mandelbrot\n \
 2. ./fractol julia {real nbr} {imaginary nbr}\n \
                     -300.501   -402.10i\n 3. ./fractol TODO\n"
@@ -50,6 +50,13 @@ typedef struct s_rgb_uint8
 	uint8_t	grn;
 	uint8_t	blu;
 }	t_rgb_uint8;
+
+typedef struct s_palette_i
+{
+	double		fract;
+	int			base;
+	double		leftover;
+}	t_palette_i;
 
 // colors_genpal_utils.c
 void		get_init_hsv(double *hue, double *sat, double *val, \

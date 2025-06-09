@@ -1,7 +1,7 @@
 
 NAME		:= fractol
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -lm 
+CFLAGS		:= -Wall -Wextra -Werror
 INCLUDE		:= -I./include
 DFLAGS		:= -g -fsanitize=address -fsanitize=leak
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(DIR_MLX_A)
 	@$(MAKE) -C $(DIR_LBFT)
 	$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(MAIN) \
-		$(DIR_LBFT)/libft.a $(MLX_FLAGS) \
+		$(DIR_LBFT)/libft.a $(MLX_FLAGS) -lm\
 		-o $(NAME)
 
 $(DIR_MLX_A):

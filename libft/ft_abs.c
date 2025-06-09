@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractol.h                                          :+:    :+:            */
+/*   ft_abs.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/09 20:06:45 by kclaes        ########   odam.nl         */
+/*   Created: 2025/06/09 18:07:48 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/06/09 18:13:05 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-
-// color palette
-# define PALETTE_SIZE 256//don't touch
-# define HUE_START 0// min is 0
-# define HUE_END 360// max is 360 
-# define SAT 1 //min is 0, max is 1
-# define VAL 1 //min is 0, max is 1
-# define AMPLIFY 1// min is 1 // only touch for fun
-
-#endif
+int ft_abs(int x)
+{
+	int	mask;
+	mask = x >> 31;
+	return (x + mask) ^ mask;
+}

@@ -6,37 +6,52 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 20:13:19 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/09 20:06:08 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "fractol_utils.h"
+#include "libft.h"
 #include <stddef.h>
 #include <stdint.h>
 #include <math.h>
 
-static void	generate_palette(uint32_t palette[]);
-static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
-							double inter_pol);
+static void			generate_palette(uint32_t palette[]);
+static t_palette_i	get_palette_index(int iters, t_nbr_i z);
+static uint32_t		lerp_color(uint32_t color1, uint32_t color2, \
+								double inter_pol);
 
-uint32_t get_color(int iters, int z)
+#include <stdio.h>
+uint32_t get_color(int iters, t_nbr_i nbr_i)
 {
 	static uint32_t palette[PALETTE_SIZE] = {0};
-	double			palette_i_fract;
-	int				palette_i_base;
-	double			palette_i_leftover;
+	t_palette_i		palette_i;	
 	uint32_t		color1;
 	uint32_t		color2;
 	
 	if (palette[0] == 0)
 		generate_palette(palette);
-	palette_i_fract = iters + 1 - log(log(abs(z))) / log(2);
-	palette_i_base = (int)palette_i_fract;
-	palette_i_leftover = palette_i_fract - palette_i_base;
-	color1 = palette[palette_i_base & PALETTE_SIZE];
-	color1 = palette[(palette_i_base + 1) & PALETTE_SIZE];
-	return (lerp_color(color1, color2, palette_i_leftover));
+	palette_i = get_palette_index(iters, nbr_i);
+	printf("palette_i: %f\n", palette_i.fract);
+	color1 = palette[palette_i.base & (PALETTE_SIZE - 1)];
+	color2 = palette[(palette_i.base + 1) & (PALETTE_SIZE - 1)];
+	printf("col1: %.8X, col2: %.8X\n\n", color1, color2);
+	return (lerp_color(color1, color2, palette_i.leftover));
+}
+
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+	if (argc != 4)
+		return (1);
+	int iters = ft_atoi(argv[1]);
+	t_nbr_i z;
+	z.real = ft_atod(argv[2]);
+	z.imag = ft_atod(argv[3]);
+	printf("iters: %i, z.real: %f, z.imag: %f\n\n", iters, z.real, z.imag);
+	uint32_t color = get_color(iters, z);
+	printf("get-color: %.8X\n", color);
 }
 
 static void	generate_palette(uint32_t palette[])
@@ -59,6 +74,21 @@ static void	generate_palette(uint32_t palette[])
 	}
 }
 
+static t_palette_i	get_palette_index(int iters, t_nbr_i z)
+{
+	t_palette_i	palette_i;
+	double		magnitude;
+
+	magnitude = sqrt(z.real * z.real + z.imag * z.imag);
+	magnitude * AMPLIFY;
+	if (magnitude <= 1.0)
+		magnitude = 1.0000001;
+	palette_i.fract = iters + 1 - log(log(magnitude)) / log(2);
+	palette_i.base = (int)palette_i.fract;
+	palette_i.leftover = palette_i.fract - palette_i.base;
+	return (palette_i);
+}
+
 static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
 							double inter_pol)
 {
@@ -74,6 +104,16 @@ static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
 	return (get_rgb_uint32(rgb_final));
 }
 
+// #include <stdio.h>
+// int main(void)
+// {
+// 	uint32_t palette[PALETTE_SIZE] = {0};
+// 	generate_palette(palette);
+// 	for (int i = 0; i < PALETTE_SIZE; i++)
+// 	{
+// 		printf("%.8X\n", palette[i]);
+// 	}
+// }
 // #include <stdio.h>
 // int main(void)
 // {

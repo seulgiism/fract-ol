@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:25:47 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/10 02:30:53 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 15:01:02 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,24 @@ int	is_mandelbrot(t_nbr_i c, int iter_max, int *iters)
 	}
 	return (1);
 }
+
+// #include <stdio.h>
+// int main(void)
+// {
+// 	t_nbr_i c1 = {.real = 0.0, .imag = 0.0};
+// 	int iters = 0;
+//
+// 	printf("is_mandel: %i, ", is_mandelbrot(c1, 1000, &iters));
+// 	printf("iters: %i\n", iters);
+// 	iters = 0;
+//
+// 	t_nbr_i c2 = {.real = 2.0, .imag = 1.0};
+// 	printf("is_mandel: %i, ", is_mandelbrot(c2, 100, &iters));
+// 	printf("iters: %i\n", iters);
+// 	iters = 0;
+//
+// 	t_nbr_i c3 = {.real = -0.45, .imag = 0.45};
+// 	printf("is_mandel: %i, ", is_mandelbrot(c3, 1000, &iters));
+// 	printf("iters: %i\n", iters);
+// 	iters = 0;
+// }

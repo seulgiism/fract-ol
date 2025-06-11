@@ -6,12 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 14:25:42 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 15:58:02 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_COLOR_UTILS_H
-# define FRACTOL_UTILS_COLOR_UTILS_H
+# define FRACTOL_COLOR_UTILS_H
 
 # include <stdint.h>
 

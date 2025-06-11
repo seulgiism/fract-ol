@@ -49,7 +49,7 @@ fclean: clean
 
 re: fclean all
 
-test: re
-	@norminette ./include ./libft ./src | grep "Error"
+test:
+	@norminette ./include ./libft ./src | grep "Error" || echo "success"
 
 .PHONY: all clean fclean re test

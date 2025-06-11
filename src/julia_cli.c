@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   julia_input.c                                      :+:    :+:            */
+/*   julia_cli.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:25:47 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/07 18:13:30 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 16:04:33 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	valid_imag(const char *imag)
 int	valid_real(const char *real)
 {
 	int	dot_count;
-	
+
 	dot_count = 0;
 	if (*real == '-' || *real == '+')
 		real++;

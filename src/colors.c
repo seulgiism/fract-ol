@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 14:23:41 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 15:59:50 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static t_palette_i	get_palette_index(int iters, t_nbr_i z);
 static uint32_t		lerp_color(uint32_t color1, uint32_t color2, \
 								double inter_pol);
 
-uint32_t get_color(int iters, t_nbr_i nbr_i)
+uint32_t	get_color(int iters, t_nbr_i nbr_i)
 {
-	static uint32_t palette[PALETTE_SIZE] = {0};
+	static uint32_t	palette[PALETTE_SIZE] = {0};
 	t_palette_i		palette_i;	
 	uint32_t		color1;
 	uint32_t		color2;
-	
+
 	if (palette[0] == 0)
 		generate_palette(palette);
 	palette_i = get_palette_index(iters, nbr_i);
@@ -64,7 +64,7 @@ static t_palette_i	get_palette_index(int iters, t_nbr_i z)
 	double		magnitude;
 
 	magnitude = sqrt(z.real * z.real + z.imag * z.imag);
-	magnitude * AMPLIFY;
+	magnitude *= AMPLIFY;
 	if (magnitude <= 1.0)
 		magnitude = 1.0000001;
 	palette_i.fract = iters + 1 - log(log(magnitude)) / log(2);
@@ -73,12 +73,12 @@ static t_palette_i	get_palette_index(int iters, t_nbr_i z)
 	return (palette_i);
 }
 
-static uint32_t lerp_color(uint32_t color1, uint32_t color2, \
+static uint32_t	lerp_color(uint32_t color1, uint32_t color2, \
 							double inter_pol)
 {
 	t_rgb_uint8	rgb1;
 	t_rgb_uint8	rgb2;
-	t_rgb_uint8 rgb_final;
+	t_rgb_uint8	rgb_final;
 
 	rgb1 = get_rgb_uint8(color1);
 	rgb2 = get_rgb_uint8(color2);

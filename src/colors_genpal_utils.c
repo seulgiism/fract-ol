@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 14:27:56 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 16:02:48 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,20 @@ static t_rgb	set_rgb(double red, double green, double blue);
 // https://cs.stackexchange.com/questions/64549/convert-hsv-to-rgb-colors
 uint32_t	hsv_to_rgb(double hue, double sat, double val)
 {
-	double	chroma;
-	double	min;
-	double	mid_rgb;
-	t_rgb	rgb;
-	uint8_t	red;
-	uint8_t	grn;
-	uint8_t blu;
+	double		chroma;
+	double		min;
+	double		mid_rgb;
+	t_rgb		rgb;
+	t_rgb_uint8	rgb_fin;
 
 	chroma = sat * val;
 	min = val - chroma;
 	mid_rgb = chroma * (1 - fabs(fmod(hue / 60.0, 2) - 1));
 	rgb = get_rgb(chroma, mid_rgb, hue);
-	red = (uint8_t)((rgb.red + min) * 255 + 0.5);
-	grn = (uint8_t)((rgb.grn + min) * 255 + 0.5);
-	blu = (uint8_t)((rgb.blu + min) * 255 + 0.5);
-	return (red << 24 | grn << 16 | blu << 8 | 255);
+	rgb_fin.red = (uint8_t)((rgb.red + min) * 255 + 0.5);
+	rgb_fin.grn = (uint8_t)((rgb.grn + min) * 255 + 0.5);
+	rgb_fin.blu = (uint8_t)((rgb.blu + min) * 255 + 0.5);
+	return (rgb_fin.red << 24 | rgb_fin.grn << 16 | rgb_fin.blu << 8 | 255);
 }
 
 static t_rgb	get_rgb(double chroma, double mid_rgb, double hue)

@@ -6,12 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/09 20:09:17 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 14:23:41 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "fractol_utils.h"
+#include "fractol_color_utils.h"
 #include "libft.h"
 #include <stddef.h>
 #include <stdint.h>

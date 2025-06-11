@@ -6,13 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/09 18:56:43 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 14:27:56 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 // colors_generate_palette_utils.c
 #include "fractol.h"
-#include "fractol_utils.h"
+#include "fractol_color_utils.h"
 #include "stdint.h"
 #include <math.h>
 

@@ -6,13 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/08 19:07:05 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/08 19:52:52 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 14:28:08 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 // colors_lerpcol_utils.c
+#include "fractol_color_utils.h"
 #include <stdint.h>
-#include "fractol_utils.h"
 
 uint8_t	lerp_byte(uint8_t color1, uint8_t color2, double inter_pol)
 {

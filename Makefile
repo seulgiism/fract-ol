@@ -2,7 +2,7 @@
 NAME		:= fractol
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-INCLUDE		:= -I./include
+INCLUDE		:= -I./include -I./$(DIR_MLX)/include
 DFLAGS		:= -g -fsanitize=address -fsanitize=leak
 
 DIR_SRC		:= ./src
@@ -12,11 +12,11 @@ DIR_MLX		:= ./MLX42
 MLX_FLAGS	:= -I$(DIR_MLX)/include \
 				-L$(DIR_MLX)/build \
 				-lmlx42 \
-				-ldl -lglfw -pthread -lm
+				-ldl -lglfw -pthread -lm -Ofast -DDEBUG=1
 DIR_MLX_A	:= $(DIR_MLX)/build/libmlx42.a
 
 MAIN		:= src/main.c
-SRC_FRACT	:= julia_input.c #mandelbrot.c \
+SRC_FRACT	:= julia_cli.c #mandelbrot.c \
 				math_utils.c color.c\#
 
 OBJ_FRACT	:= $(addprefix $(DIR_SRC)/, $(SRC_FRACT:.c=.o))
@@ -41,11 +41,11 @@ $(DIR_SRC)/%.o: $(DIR_SRC)/%.c
 
 clean:
 	rm -f $(OBJ)
-#	@$(MAKE) -C $(DIR_LBFT) clean
+	@$(MAKE) -C $(DIR_LBFT) clean
+	@rm -rf $(DIR_MLX)/build
 
 fclean: clean
 	rm -f $(NAME)
-#	@$(MAKE) -C $(DIR_LBFT) fclean
 
 re: fclean all
 

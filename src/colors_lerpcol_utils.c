@@ -6,11 +6,11 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/08 19:07:05 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 16:03:54 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 19:19:32 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// colors_lerpcol_utils.c
+// colors_lerp_color_utils.c
 #include "fractol_color_utils.h"
 #include <stdint.h>
 

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 15:56:13 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/11 20:11:29 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int			is_mandelbrot(t_nbr_i c, int iter_max, int *iters);
 
 // [COLORS]
 // 	colors.c
-uint32_t	get_color(int iters, t_nbr_i nbr_i);
+uint32_t	get_color(int iters, t_nbr_i nbr_i, double time);
 
 #endif

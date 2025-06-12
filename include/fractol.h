@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 20:08:28 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/12 19:57:14 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 # define AMPLIFY 1// min is 1 // only touch for fun
 # define BREATH 10// min is 1, the bigger the slower, 
 // disable breath by typing # define BREATH time
+# define MAX_FRACT 2 // max boundry of the fractal
+# define MIN_FRACT -2 // min boundry of the fractal
+
+// move speed
+# define MOVE_SPEED 1 // amount of pixels it travels
 
 // window
 # define WIDTH 256

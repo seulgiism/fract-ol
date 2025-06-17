@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 20:11:29 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/17 19:44:33 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // libs
 # include <stdint.h>
+# include <fractol_render_utils.h>
 
 // error messages
 # define EXPECTED_INPT "[EXPECTED INPUTS]:\n \
@@ -49,5 +50,15 @@ int			is_mandelbrot(t_nbr_i c, int iter_max, int *iters);
 // [COLORS]
 // 	colors.c
 uint32_t	get_color(int iters, t_nbr_i nbr_i, double time);
+
+// [RENDER]
+//	render_move.c
+void		move_up(t_render *render, int32_t pixels);
+void		move_down(t_render *render, int32_t pixels);
+void		move_right(t_render *render, int32_t pixels);
+void		move_left(t_render *render, int32_t pixels);
+
+// 	render_zoom.c
+void		zoom(t_render *render, double ydelta);
 
 #endif

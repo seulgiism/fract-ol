@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractol_render_utils.h                             :+:    :+:            */
+/*   fractol_move_utils.h                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/06/12 15:48:10 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 15:50:14 by kclaes        ########   odam.nl         */
+/*   Created: 2025/06/17 15:46:40 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/06/17 15:49:15 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_RENDER_UTILS_H
-# define FRACTOL_RENDER_UTILS_H
+#ifndef FRACTOL_MOVE_UTILS_H
+# define FRACTOL_MOVE_UTILS_H
 
-# include "MLX42.h"
+# include <stdbool.h>
 
-typedef struct s_fract
+typedef struct s_move
 {
-	double	i_start;
-	double	i_end;
-	double	r_start;
-	double	r_end;
-}	t_fract;
-
-typedef struct s_render
-{
-	t_fract		fract;
-	mlx_image_t	*img;
-	mlx_t		*mlx;
-}	t_render;
-
-void	p_mlxerror(void);
+	double	start;
+	double	end;
+	bool	positive;
+}	t_move;
 
 #endif

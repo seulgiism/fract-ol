@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/12 19:57:14 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/17 19:10:00 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@
 # define MAX_FRACT 2 // max boundry of the fractal
 # define MIN_FRACT -2 // min boundry of the fractal
 
-// move speed
-# define MOVE_SPEED 1 // amount of pixels it travels
+// move speed + scroll speed
+# define MOVE_SPEED 1 // amount of pixels it travels, please don't put 0
+# define SCROLL_SPEED 1.5
 
 // window
 # define WIDTH 256

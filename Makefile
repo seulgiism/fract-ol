@@ -9,14 +9,14 @@ DIR_SRC		:= ./src
 DIR_LBFT	:= ./libft
 
 DIR_MLX		:= ./MLX42
-MLX_FLAGS	:= -I$(DIR_MLX)/include \
+MLX_FLAGS	:= -I$(DIR_MLX)/include/MLX42 \
 				-L$(DIR_MLX)/build \
 				-lmlx42 \
 				-ldl -lglfw -pthread -lm -Ofast -DDEBUG=1
 DIR_MLX_A	:= $(DIR_MLX)/build/libmlx42.a
 
-MAIN		:= src/main.c
-SRC_FRACT	:= julia_cli.c #mandelbrot.c \
+MAIN		:= src/render_move.c
+SRC_FRACT	:=  #mandelbrot.c \
 				math_utils.c color.c\#
 
 OBJ_FRACT	:= $(addprefix $(DIR_SRC)/, $(SRC_FRACT:.c=.o))
@@ -41,8 +41,8 @@ $(DIR_SRC)/%.o: $(DIR_SRC)/%.c
 
 clean:
 	rm -f $(OBJ)
-	@$(MAKE) -C $(DIR_LBFT) clean
-	@rm -rf $(DIR_MLX)/build
+#	@$(MAKE) -C $(DIR_LBFT) clean
+#	@rm -rf $(DIR_MLX)/build
 
 fclean: clean
 	rm -f $(NAME)

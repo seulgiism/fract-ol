@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:09:02 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/12 16:33:26 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/17 19:47:13 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	draw_fract(int fractal_type)
+int	render(int fractal_type)
 {
 	t_render	render;
 	

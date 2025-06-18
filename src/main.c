@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:18:34 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 18:27:56 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 15:29:01 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 {
 	t_nbr_i	const_i;
 	short	fract_type;
+	int		exit_status;
 
 	if (argc == 2 && ft_streq("mandelbrot", argv[1], true))
 	{
@@ -33,5 +34,5 @@ int	main(int argc, char *argv[])
 	else
 		return (ft_printf(COLOR_BRIGHT_MAGENTA EXPECTED_INPT COLOR_RESET), \
 				1);
-	draw_fract();
+	exit_status = render();
 }

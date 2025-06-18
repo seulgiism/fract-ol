@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 19:19:41 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 15:08:00 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 15:27:16 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,9 @@ void	resize_hook(int32_t width, int32_t height, t_render *render)
 void	close_hook(t_render *render)
 {
 	mlx_terminate(render->mlx);
+}
+
+void	loop_hook(t_render *render)
+{
+	render_fract(*render);
 }

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 14:48:16 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 15:29:25 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ int			is_mandelbrot(t_nbr_i c, int iter_max, int *iters);
 uint32_t	get_color(int iters, t_nbr_i nbr_i, double time);
 
 // [RENDER]
+//	render.c
+int			render(int fractal_type, t_nbr_i c);
+
 //	render_move.c
 void		move_up(t_render *render, uint32_t pixels);
 void		move_down(t_render *render, uint32_t pixels);
@@ -64,7 +67,15 @@ void		zoom(t_render *render, double ydelta);
 //	render_itermax_utils.c
 int			get_itersmax(t_render render);
 
+//	render_hooks.c
+
+void	scroll_hook(double xdelta, double ydelta, t_render *render);
+void	key_hook(mlx_key_data_t keydata, t_render *render);
+void	resize_hook(int32_t width, int32_t height, t_render *render);
+void	close_hook(t_render *render);
+void	loop_hook(t_render *render);
+
 //	render_fract.c;
-void		render_fract(t_render render, t_nbr_i c);
+void		render_fract(t_render render);
 
 #endif

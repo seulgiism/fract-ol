@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:09:02 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 14:28:49 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 15:29:45 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,25 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	render(int fractal_type)
+int	render(int fractal_type, t_nbr_i c)
 {
 	t_render	render;
 	
+	render.fract.type = fractal_type;
+	render.fract.c = c;
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	render.mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
 	if (!render.mlx)
 		p_mlxerror();
 	render.img = mlx_new_image(render.mlx, WIDTH, HEIGHT);
 	if (!render.img || (mlx_image_to_window(render.mlx, render.img, 0, 0) < 0))
-		ft_error();
+		p_mlxerror();
+	mlx_scroll_hook(render.mlx, scroll_hook, &render);
+	mlx_key_hook(render.mlx, key_hook, &render);
+	mlx_resize_hook(render.mlx, resize_hook, &render);
+	mlx_close_hook(render.mlx, close_hook, &render);
+	mlx_loop_hook(render.mlx, loop_hook, &render);
+	mlx_loop(render.mlx);
+	mlx_terminate(render.mlx);
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 19:10:00 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:47:23 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define SCROLL_SPEED 1.5
 
 // window
-# define WIDTH 256
-# define HEIGHT 256
+# define WIDTH 1000
+# define HEIGHT 1000
 
 #endif

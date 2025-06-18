@@ -6,12 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 16:40:14 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 14:25:10 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:45:13 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MLX42.h"
-#include "fractol_render_utils.h"
+#include "fractol_utils.h"
 #include "fractol_move_utils.h"
 #include "fractol.h"
 #include <math.h>
@@ -114,11 +114,13 @@ static double	get_move_speed(t_move move, double scale, uint32_t pixels)
 // 	render.fract.r_start = -1.75;
 // 	render.fract.r_end = 1.75;
 //
-// 	printf("start: %.18f , end: %.18f\n", render.fract.r_start, render.fract.r_end);
+// 	printf("start: %.18f , end: %.18f\n", render.fract.r_start
+//			, render.fract.r_end);
 // 	for (int i = 0; i < 1; i++)
 // 	{
 // 		move_down(&render, 30);
 // 		//move_right(&render, MOVE_SPEED);
-// 		printf("start: %.18f , end: %.18f\n", render.fract.r_start, render.fract.r_end);
+// 		printf("start: %.18f , end: %.18f\n", render.fract.r_start, 
+//				render.fract.r_end);
 // 	}
 // }

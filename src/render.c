@@ -6,13 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:09:02 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 15:29:45 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:44:02 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MLX42.h"
 #include "fractol.h"
-#include "fractol_render_utils.h"
+#include "fractol_utils.h"
 #include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
@@ -20,7 +20,7 @@
 int	render(int fractal_type, t_nbr_i c)
 {
 	t_render	render;
-	
+
 	render.fract.type = fractal_type;
 	render.fract.c = c;
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);

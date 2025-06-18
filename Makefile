@@ -2,7 +2,7 @@
 NAME		:= fractol
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-INCLUDE		:= -I./include -I./$(DIR_MLX)/include
+INCLUDE		:= -I./include -I./MLX42/include/MLX42/
 DFLAGS		:= -g -fsanitize=address -fsanitize=leak
 
 DIR_SRC		:= ./src
@@ -15,9 +15,11 @@ MLX_FLAGS	:= -I$(DIR_MLX)/include/MLX42 \
 				-ldl -lglfw -pthread -lm -Ofast -DDEBUG=1
 DIR_MLX_A	:= $(DIR_MLX)/build/libmlx42.a
 
-MAIN		:= src/render_move.c
-SRC_FRACT	:=  #mandelbrot.c \
-				math_utils.c color.c\#
+MAIN		:= src/main.c
+SRC_FRACT	:= render.c render_zoom.c render_utils.c render_move.c \
+				render_itermax_utils.c render_hooks.c render_fract.c \
+				mandelbrot.c julia.c julia_cli.c \
+				colors.c colors_lerpcol_utils.c colors_genpal_utils.c
 
 OBJ_FRACT	:= $(addprefix $(DIR_SRC)/, $(SRC_FRACT:.c=.o))
 
@@ -41,15 +43,16 @@ $(DIR_SRC)/%.o: $(DIR_SRC)/%.c
 
 clean:
 	rm -f $(OBJ)
-#	@$(MAKE) -C $(DIR_LBFT) clean
-#	@rm -rf $(DIR_MLX)/build
+	@$(MAKE) -C $(DIR_LBFT) clean
+	@rm -rf $(DIR_MLX)/build
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-test:
+test: all
 	@norminette ./include ./libft ./src | grep "Error" || echo "success"
+	./$(NAME)
 
 .PHONY: all clean fclean re test

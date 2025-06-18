@@ -6,11 +6,11 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:17:28 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 14:23:51 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:44:55 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_render_utils.h"
+#include "fractol_utils.h"
 
 int	get_itersmax(t_render render)
 {
@@ -34,10 +34,6 @@ int	get_itersmax(t_render render)
 		return (last_zoom = zoom, last_iters_max = 500);
 	else if (zoom > 0.0000001)
 		return (last_zoom = zoom, last_iters_max = 700);
-	else if (zoom > 0.000000001)
-		return (last_zoom = zoom, last_iters_max = 1000);
-	else if (zoom > 0.00000000001)
-		return (last_zoom = zoom, last_iters_max = 1500);
 	else
 		return (last_zoom = zoom, last_iters_max = 3000);
 }

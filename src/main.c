@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:18:34 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 15:29:01 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:39:26 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ft_printf.h"
 #include "fractol_utils.h"
 #include "colors.h"
+#include <stdlib.h>
 
 int	main(int argc, char *argv[])
 {
@@ -21,6 +22,8 @@ int	main(int argc, char *argv[])
 	short	fract_type;
 	int		exit_status;
 
+	const_i.imag = 0;
+	const_i.real = 0;
 	if (argc == 2 && ft_streq("mandelbrot", argv[1], true))
 	{
 		fract_type = MANDELBROT;
@@ -34,5 +37,6 @@ int	main(int argc, char *argv[])
 	else
 		return (ft_printf(COLOR_BRIGHT_MAGENTA EXPECTED_INPT COLOR_RESET), \
 				1);
-	exit_status = render();
+	exit_status = render(fract_type, const_i);
+	exit(exit_status);
 }

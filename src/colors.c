@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 20:10:46 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:40:31 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ uint32_t	get_color(int iters, t_nbr_i nbr_i, double time)
 	t_palette_i		palette_i;	
 	uint32_t		color1;
 	uint32_t		color2;
-	
+
 	if (palette[0] == 0)
 		generate_palette(palette);
 	palette_i = get_palette_index(iters, nbr_i);

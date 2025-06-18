@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 15:29:25 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 16:40:14 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // libs
 # include <stdint.h>
-# include <fractol_render_utils.h>
+# include "MLX42.h"
 
 // error messages
 # define EXPECTED_INPT "[EXPECTED INPUTS]:\n \
@@ -35,6 +35,25 @@ typedef struct s_nbr_i
 	double	imag;
 	double	real;
 }	t_nbr_i;
+
+typedef struct s_fract
+{
+	int		type;
+	t_nbr_i	c;
+	double	i_start;
+	double	i_end;
+	double	r_start;
+	double	r_end;
+}	t_fract;
+
+typedef struct s_render
+{
+	t_fract		fract;
+	mlx_image_t	*img;
+	mlx_t		*mlx;
+}	t_render;
+
+void		p_mlxerror(void);
 
 // [CLI PARSING]
 // 	julia_cli.c
@@ -68,12 +87,11 @@ void		zoom(t_render *render, double ydelta);
 int			get_itersmax(t_render render);
 
 //	render_hooks.c
-
-void	scroll_hook(double xdelta, double ydelta, t_render *render);
-void	key_hook(mlx_key_data_t keydata, t_render *render);
-void	resize_hook(int32_t width, int32_t height, t_render *render);
-void	close_hook(t_render *render);
-void	loop_hook(t_render *render);
+void		scroll_hook(double xdelta, double ydelta, void *render);
+void		key_hook(mlx_key_data_t keydata, void *render);
+void		resize_hook(int32_t width, int32_t height, void *render);
+void		close_hook(void *render);
+void		loop_hook(void *render);
 
 //	render_fract.c;
 void		render_fract(t_render render);

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/07 17:59:21 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 16:40:31 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 18:24:54 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ uint32_t	get_color(int iters, t_nbr_i nbr_i, double time)
 	if (palette[0] == 0)
 		generate_palette(palette);
 	palette_i = get_palette_index(iters, nbr_i);
-	color1 = palette[(palette_i.base + (int)(time / BREATH)) \
+	color1 = palette[(palette_i.base + (int)(time * BREATH)) \
 						& (PALETTE_SIZE - 1)];
-	color2 = palette[(palette_i.base + 1 + (int)(time / BREATH)) \
+	color2 = palette[(palette_i.base + 1 + (int)(time * BREATH)) \
 						& (PALETTE_SIZE - 1)];
 	return (lerp_color(color1, color2, palette_i.leftover));
 }

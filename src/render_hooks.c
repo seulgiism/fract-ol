@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 19:19:41 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 16:31:41 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 19:08:48 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ void	key_hook(mlx_key_data_t keydata, void *render)
 
 void	resize_hook(int32_t width, int32_t height, void *render)
 {
-	mlx_set_window_size(((t_render *) render)->mlx, width, height);
+	if (height > width)
+		height = width;
+	else
+		width = height;
+	mlx_resize_image(((t_render *) render)->img, width, height);
 }
 
 void	close_hook(void *render)

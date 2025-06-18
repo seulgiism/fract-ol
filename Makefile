@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(DIR_MLX_A)
 	@$(MAKE) -C $(DIR_LBFT)
-	$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(MAIN) \
+	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) $(OBJ) $(MAIN) \
 		$(DIR_LBFT)/libft.a $(MLX_FLAGS) -lm\
 		-o $(NAME)
 
@@ -43,8 +43,8 @@ $(DIR_SRC)/%.o: $(DIR_SRC)/%.c
 
 clean:
 	rm -f $(OBJ)
-	@$(MAKE) -C $(DIR_LBFT) clean
-	@rm -rf $(DIR_MLX)/build
+#	@$(MAKE) -C $(DIR_LBFT) clean
+#	@rm -rf $(DIR_MLX)/build
 
 fclean: clean
 	rm -f $(NAME)

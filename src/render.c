@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:09:02 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 16:44:02 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 19:02:53 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+static void	init_fract(t_render *render, int fractal_type, t_nbr_i c);
+
 int	render(int fractal_type, t_nbr_i c)
 {
 	t_render	render;
 
-	render.fract.type = fractal_type;
-	render.fract.c = c;
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
+	init_fract(&render, fractal_type, c);
 	render.mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
 	if (!render.mlx)
 		p_mlxerror();
@@ -38,4 +38,14 @@ int	render(int fractal_type, t_nbr_i c)
 	mlx_loop(render.mlx);
 	mlx_terminate(render.mlx);
 	return (EXIT_SUCCESS);
+}
+
+static void	init_fract(t_render *render, int fractal_type, t_nbr_i c)
+{
+	render->fract.type = fractal_type;
+	render->fract.c = c;
+	render->fract.r_start = MIN_FRACT;
+	render->fract.i_start = MIN_FRACT;
+	render->fract.r_end = MAX_FRACT;
+	render->fract.i_end = MAX_FRACT;
 }

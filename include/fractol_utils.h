@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 16:40:14 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 18:04:40 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@
 # define MANDELBROT 2
 # define OTHER 3
 
+typedef struct s_pixel_curr
+{
+	uint32_t	x;
+	uint32_t	y;
+}	t_pixel_curr;
+
+
 // imaginary nbr
 typedef struct s_nbr_i
 {
@@ -36,6 +43,7 @@ typedef struct s_nbr_i
 	double	real;
 }	t_nbr_i;
 
+// fractal
 typedef struct s_fract
 {
 	int		type;
@@ -46,6 +54,7 @@ typedef struct s_fract
 	double	r_end;
 }	t_fract;
 
+// render / app
 typedef struct s_render
 {
 	t_fract		fract;

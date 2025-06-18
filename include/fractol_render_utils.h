@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 15:48:10 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 15:50:14 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 14:02:11 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct s_fract
 {
+	int		type;
 	double	i_start;
 	double	i_end;
 	double	r_start;

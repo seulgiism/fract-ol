@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:09:02 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 19:47:13 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 14:28:49 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ int	render(int fractal_type)
 	if (!render.img || (mlx_image_to_window(render.mlx, render.img, 0, 0) < 0))
 		ft_error();
 }
-

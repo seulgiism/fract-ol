@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 16:40:14 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 18:53:40 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 14:25:10 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include <math.h>
 #include <stdbool.h>
 
-static double	get_move_speed(t_move move, double scale, int32_t pixels);
+static double	get_move_speed(t_move move, double scale, uint32_t pixels);
 
-void	move_up(t_render *render, int32_t pixels)
+void	move_up(t_render *render, uint32_t pixels)
 {
 	double	step_size;
 	double	scale;
@@ -34,7 +34,7 @@ void	move_up(t_render *render, int32_t pixels)
 	render->fract.i_start += step_size;
 }
 
-void	move_right(t_render *render, int32_t pixels)
+void	move_right(t_render *render, uint32_t pixels)
 {
 	double	step_size;
 	double	scale;
@@ -49,7 +49,7 @@ void	move_right(t_render *render, int32_t pixels)
 	render->fract.r_start += step_size;
 }
 
-void	move_down(t_render *render, int32_t pixels)
+void	move_down(t_render *render, uint32_t pixels)
 {
 	double	step_size;
 	double	scale;
@@ -80,7 +80,7 @@ void	move_left(t_render *render, uint32_t pixels)
 }
 
 // scale == 1 pixel in fractal depth
-static double	get_move_speed(t_move move, double scale, int32_t pixels)
+static double	get_move_speed(t_move move, double scale, uint32_t pixels)
 {
 	double	step_size;
 

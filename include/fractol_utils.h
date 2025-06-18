@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 19:44:33 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 14:48:16 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,18 @@ uint32_t	get_color(int iters, t_nbr_i nbr_i, double time);
 
 // [RENDER]
 //	render_move.c
-void		move_up(t_render *render, int32_t pixels);
-void		move_down(t_render *render, int32_t pixels);
-void		move_right(t_render *render, int32_t pixels);
-void		move_left(t_render *render, int32_t pixels);
+void		move_up(t_render *render, uint32_t pixels);
+void		move_down(t_render *render, uint32_t pixels);
+void		move_right(t_render *render, uint32_t pixels);
+void		move_left(t_render *render, uint32_t pixels);
 
 // 	render_zoom.c
 void		zoom(t_render *render, double ydelta);
+
+//	render_itermax_utils.c
+int			get_itersmax(t_render render);
+
+//	render_fract.c;
+void		render_fract(t_render render, t_nbr_i c);
 
 #endif

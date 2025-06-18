@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 19:19:41 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 19:54:33 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 15:08:00 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 #include "fractol_utils.h"
 #include "fractol.h"
 #include "MLX42.h"
+#include "fractol_move_utils.h"
 
 // render_hooks.c
-void scroll_hook(double xdelta, double ydelta, t_render *render)
+void	scroll_hook(double xdelta, double ydelta, t_render *render)
 {
 	(void) xdelta;
 	zoom(render, ydelta);
 }
 
-void key_hook(mlx_key_data_t keydata, t_render *render)
+void	key_hook(mlx_key_data_t keydata, t_render *render)
 {
 	if (keydata.key == MLX_KEY_X)
 	{
-		close_hook(); // TODO
+		close_hook(render);
 	}
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
 	{
@@ -46,17 +47,12 @@ void key_hook(mlx_key_data_t keydata, t_render *render)
 	}
 }
 
-void close_hook(t_render *render)
+void	resize_hook(int32_t width, int32_t height, t_render *render)
 {
-	// TODO?
+	mlx_set_window_size(render->mlx, width, height);
 }
 
-void resize_hook(int32_t width, int32_t height, t_render *render)
+void	close_hook(t_render *render)
 {
-	// RESIZE IMG WITH THIS
-}
-
-void render_fract()
-{
-	
+	mlx_terminate(render->mlx);
 }

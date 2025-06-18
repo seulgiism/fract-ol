@@ -6,17 +6,20 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:17:28 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/17 18:30:52 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/18 14:23:51 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	calc_itersmax(double i_start, double i_end, double z_start, double z_end)
+#include "fractol_render_utils.h"
+
+int	get_itersmax(t_render render)
 {
 	static double	last_zoom = 0;
 	static int		last_iters_max = 0;
 	double			zoom;
 
-	zoom = (i_start + i_end + z_start + z_end) / 4;
+	zoom = (render.fract.i_start + render.fract.i_end + \
+			render.fract.r_start + render.fract.r_end) / 4;
 	if (zoom == last_zoom)
 		return (last_iters_max);
 	if (zoom > 0.01)

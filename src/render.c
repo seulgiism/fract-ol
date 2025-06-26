@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 15:09:02 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 19:02:53 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/26 17:01:42 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	render(int fractal_type, t_nbr_i c)
 	mlx_key_hook(render.mlx, key_hook, &render);
 	mlx_resize_hook(render.mlx, resize_hook, &render);
 	mlx_close_hook(render.mlx, close_hook, &render);
-	mlx_loop_hook(render.mlx, loop_hook, &render);
+	render_fract(&render);
 	mlx_loop(render.mlx);
 	mlx_terminate(render.mlx);
 	return (EXIT_SUCCESS);
@@ -48,4 +48,5 @@ static void	init_fract(t_render *render, int fractal_type, t_nbr_i c)
 	render->fract.i_start = MIN_FRACT;
 	render->fract.r_end = MAX_FRACT;
 	render->fract.i_end = MAX_FRACT;
+	render->fract.iter_max = 100;
 }

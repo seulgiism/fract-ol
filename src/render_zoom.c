@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/17 18:32:43 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 16:42:46 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/26 15:33:27 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	zoom(t_render *render, double ydelta)
 // 	t_nbr_i	scale;
 //
 // 	mlx_get_mouse_pos(render.mlx, &x, &y);
-// 	scale.imag = (render.fract.i_end - render.fract.i_start) \
+// 	scale.imag = (render.fract.i_end - render.fract.i_start) 
 // 					/ render.img->height;
-// 	scale.real = (render.fract.r_end - render.fract.r_start) \
+// 	scale.real = (render.fract.r_end - render.fract.r_start) 
 // 					/ render.img->width;
 // 	mouse_pos.imag = (y * scale.imag) + render.fract.i_start;
 // 	mouse_pos.real = (x * scale.real) + render.fract.r_start;

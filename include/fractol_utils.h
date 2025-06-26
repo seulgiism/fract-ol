@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 18:04:40 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/26 17:00:46 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_fract
 	double	i_end;
 	double	r_start;
 	double	r_end;
+	int		iter_max;
 }	t_fract;
 
 // render / app
@@ -77,7 +78,7 @@ int			is_mandelbrot(t_nbr_i c, int iter_max, int *iters);
 
 // [COLORS]
 // 	colors.c
-uint32_t	get_color(int iters, t_nbr_i nbr_i, double time);
+uint32_t	get_color(int iters, t_render render, double time);
 
 // [RENDER]
 //	render.c
@@ -93,16 +94,15 @@ void		move_left(t_render *render, uint32_t pixels);
 void		zoom(t_render *render, double ydelta);
 
 //	render_itermax_utils.c
-int			get_itersmax(t_render render);
+int			get_itersmax(t_render *render);
 
 //	render_hooks.c
 void		scroll_hook(double xdelta, double ydelta, void *render);
 void		key_hook(mlx_key_data_t keydata, void *render);
 void		resize_hook(int32_t width, int32_t height, void *render);
 void		close_hook(void *render);
-void		loop_hook(void *render);
 
 //	render_fract.c;
-void		render_fract(t_render render);
+void		render_fract(t_render *render);
 
 #endif

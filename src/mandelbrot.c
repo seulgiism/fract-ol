@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:25:47 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 18:55:44 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/26 15:48:05 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_mandelbrot(t_nbr_i c, int iter_max, int *iters)
 		z.imag = (2 * z.real * z.imag) + c.imag;
 		z.real = tmp_real + c.real;
 		if ((z.real * z.real) + (z.imag * z.imag) \
-			> ft_abs(MAX_FRACT) * ft_abs(MIN_FRACT))
+			> ESCP_RAD)
 			return (0);
 		(*iters)++;
 	}

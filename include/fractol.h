@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/18 18:49:23 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/26 15:55:58 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define AMPLIFY 1// min is 1 // only touch for fun
 # define BREATH 1.5// min is 1, the bigger the slower, 
 // disable breath by typing # define BREATH time
+# define ESCP_RAD 4
 # define MAX_FRACT 2 // max boundry of the fractal
 # define MIN_FRACT -2 // min boundry of the fractal
 

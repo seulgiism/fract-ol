@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fractol_utils.h"
+#include "fractol.h"
 
 static void	get_scale_init_nbri(t_render render, double *scale_width, \
 								double *scale_height, t_nbr_i *nbr_i);

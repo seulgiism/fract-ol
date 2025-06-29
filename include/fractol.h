@@ -15,16 +15,17 @@
 
 // color palette
 # define PALETTE_SIZE 256//don't touch
-# define HUE_START 260// min is 0
-# define HUE_END 360// max is 360 
-# define SAT 0.5 //min is 0, max is 1
-# define VAL 0.8 //min is 0, max is 1
+# define HUE_START 285// min is 0
+# define HUE_END 330// max is 360
+# define SAT 0.8 //min is 0, max is 1
+# define VAL 0.9 //min is 0, max is 1
 # define AMPLIFY 1// min is 1 // only touch for fun
 # define BREATH 1.5// min is 1, the bigger the slower, 
 // disable breath by typing # define BREATH time
 # define ESCP_RAD 4
 # define MAX_FRACT 2 // max boundry of the fractal
 # define MIN_FRACT -2 // min boundry of the fractal
+# define INSIDE_COLOR 0x200020
 
 // move speed + scroll speed
 # define MOVE_SPEED 1 // amount of pixels it travels, please don't put 0

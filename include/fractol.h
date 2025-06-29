@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/05 18:39:39 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/26 15:55:58 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/06/29 20:09:40 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 // color palette
 # define PALETTE_SIZE 256//don't touch
-# define HUE_START 0// min is 0
+# define HUE_START 260// min is 0
 # define HUE_END 360// max is 360 
-# define SAT 1 //min is 0, max is 1
-# define VAL 1 //min is 0, max is 1
+# define SAT 0.5 //min is 0, max is 1
+# define VAL 0.8 //min is 0, max is 1
 # define AMPLIFY 1// min is 1 // only touch for fun
 # define BREATH 1.5// min is 1, the bigger the slower, 
 // disable breath by typing # define BREATH time

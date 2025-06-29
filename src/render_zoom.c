@@ -18,7 +18,7 @@
 
 //static t_nbr_i	get_mouse_pos(t_render render, int32_t x, int32_t y);
 static void		move(t_render *render, uint32_t x, uint32_t y);
-static void		zoom_center(t_render *render, uint32_t ydelta);
+static void		zoom_center(t_render *render, double ydelta);
 static void		boundry_correction(t_render *render);
 
 void	zoom(t_render *render, double ydelta)
@@ -64,30 +64,28 @@ static void	move(t_render *render, uint32_t x, uint32_t y)
 		move_right(render, x - (render->img->width / 2));
 	else
 		move_left(render, (render->img->width / 2) - x);
-	if (y >= render->img->height / 2)
-		move_up(render, y - (render->img->width / 2));
-	else
-		move_down(render, (render->img->width / 2) - y);
+        if (y >= render->img->height / 2)
+                move_up(render, y - (render->img->height / 2));
+        else
+                move_down(render, (render->img->height / 2) - y);
 }
 
-static void	zoom_center(t_render *render, uint32_t ydelta)
+static void    zoom_center(t_render *render, double ydelta)
 {
-	t_nbr_i	center;
-	t_nbr_i	offset;
-	double	scroll_speed;
+        t_nbr_i center;
+        double  factor;
+        double  half_width;
+        double  half_height;
 
-	if (ydelta > 0)
-		scroll_speed = SCROLL_SPEED;
-	else
-		scroll_speed = 1 / SCROLL_SPEED;
-	center.real = (render->fract.r_start + render->fract.r_end) / 2;
-	center.imag = (render->fract.i_start + render->fract.i_end) / 2;
-	offset.real = (render->fract.r_end - center.real) / scroll_speed;
-	offset.imag = (render->fract.i_end - center.imag) / scroll_speed;
-	render->fract.r_end = center.real + offset.real;
-	render->fract.r_start = center.real - offset.real;
-	render->fract.i_end = center.imag + offset.imag;
-	render->fract.i_start = center.imag - offset.imag;
+        factor = pow(SCROLL_SPEED, -ydelta);
+        center.real = (render->fract.r_start + render->fract.r_end) / 2;
+        center.imag = (render->fract.i_start + render->fract.i_end) / 2;
+        half_width = (render->fract.r_end - center.real) * factor;
+        half_height = (render->fract.i_end - center.imag) * factor;
+        render->fract.r_end = center.real + half_width;
+        render->fract.r_start = center.real - half_width;
+        render->fract.i_end = center.imag + half_height;
+        render->fract.i_start = center.imag - half_height;
 }
 
 static void	boundry_correction(t_render *render)

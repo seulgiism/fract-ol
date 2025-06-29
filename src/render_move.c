@@ -27,8 +27,8 @@ void	move_up(t_render *render, uint32_t pixels)
 
 	move.start = render->fract.i_start;
 	move.end = render->fract.i_end;
-	move.positive = true;
-	scale = (render->fract.i_end - render->fract.i_start) / render->img->width;
+        move.positive = false;
+        scale = (render->fract.i_end - render->fract.i_start) / render->img->height;
 	step_size = get_move_speed(move, scale, pixels);
 	render->fract.i_end += step_size;
 	render->fract.i_start += step_size;
@@ -40,11 +40,11 @@ void	move_right(t_render *render, uint32_t pixels)
 	double	scale;
 	t_move	move;
 
-	move.start = render->fract.r_start;
-	move.end = render->fract.r_end;
-	move.positive = true;
-	scale = (render->fract.r_end - render->fract.r_start) / render->img->width;
-	step_size = get_move_speed(move, scale, pixels);
+       move.start = render->fract.r_start;
+       move.end = render->fract.r_end;
+       move.positive = false;
+       scale = (render->fract.r_end - render->fract.r_start) / render->img->width;
+       step_size = get_move_speed(move, scale, pixels);
 	render->fract.r_end += step_size;
 	render->fract.r_start += step_size;
 }
@@ -58,7 +58,7 @@ void	move_down(t_render *render, uint32_t pixels)
 	move.start = render->fract.i_start;
 	move.end = render->fract.i_end;
 	move.positive = false;
-	scale = (render->fract.i_end - render->fract.i_start) / render->img->width;
+        scale = (render->fract.i_end - render->fract.i_start) / render->img->height;
 	step_size = get_move_speed(move, scale, pixels);
 	render->fract.i_end -= step_size;
 	render->fract.i_start -= step_size;
@@ -72,7 +72,7 @@ void	move_left(t_render *render, uint32_t pixels)
 
 	move.start = render->fract.r_start;
 	move.end = render->fract.r_end;
-	move.positive = true;
+	move.positive = false;
 	scale = (render->fract.r_end - render->fract.r_start) / render->img->width;
 	step_size = get_move_speed(move, scale, pixels);
 	render->fract.r_end -= step_size;

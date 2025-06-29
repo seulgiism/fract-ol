@@ -25,7 +25,7 @@ MLX_FLAGS  := -I$(DIR_MLX)/include/MLX42 \
 
 #───────────────── sources / obj ──────────────
 SRC_FRACT  := render.c render_zoom.c render_utils.c render_move.c \
-              render_itermax_utils.c render_hooks.c render_fract.c \
+              render_itermax_utils.c render_hooks.c render_drag.c render_fract.c \
               mandelbrot.c julia.c julia_cli.c \
               colors.c colors_lerpcol_utils.c colors_genpal_utils.c
 

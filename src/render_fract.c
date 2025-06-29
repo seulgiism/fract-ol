@@ -63,11 +63,12 @@ static void     render_pixel(t_render *render, t_nbr_i nbr_i, t_nbr_i c,
 		in_fractol = is_julia(nbr_i, c, iter_max, &iters);
 	else
 		close_hook(render);
-	if (!in_fractol)
-		mlx_put_pixel((*render).img, px.x, px.y, \
-			get_color(iters, *render, time));
-	else
-		mlx_put_pixel((*render).img, px.x, px.y, INSIDE_COLOR);
+       if (!in_fractol)
+               ((uint32_t *)render->img->pixels)[px.y * render->img->width + px.x] 
+                       = get_color(iters, *render, time);
+       else
+               ((uint32_t *)render->img->pixels)[px.y * render->img->width + px.x] 
+                       = INSIDE_COLOR;
 }
 
 static void	get_scale_init_nbri(t_render render, double *scale_width, \

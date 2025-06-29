@@ -101,6 +101,7 @@ void		scroll_hook(double xdelta, double ydelta, void *render);
 void		key_hook(mlx_key_data_t keydata, void *render);
 void		resize_hook(int32_t width, int32_t height, void *render);
 void		close_hook(void *render);
+void            drag_hook(void *render);
 
 //	render_fract.c;
 void		render_fract(t_render *render);

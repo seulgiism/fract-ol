@@ -14,8 +14,10 @@
 
 static void	get_scale_init_nbri(t_render render, double *scale_width, \
 								double *scale_height, t_nbr_i *nbr_i);
-static void	render_pixel(t_render *render, t_nbr_i nbr_i, t_nbr_i c, \
-							t_pixel_curr px);
+static void     render_pixel(t_render *render, t_nbr_i nbr_i, t_nbr_i c, 
+                                                        t_pixel_curr px, 
+                                                        int iter_max, 
+                                                        double time);
 
 void	render_fract(t_render *render)
 {
@@ -24,14 +26,18 @@ void	render_fract(t_render *render)
 	t_nbr_i	nbr_i;
 	t_pixel_curr px;
 
+        int     iter_max;
+        double  time;
 	px.x = 0;
 	px.y = 0;
 	get_scale_init_nbri((*render), &scale_width, &scale_height, &nbr_i);
+        iter_max = get_itersmax(render);
+        time = mlx_get_time();
 	while (nbr_i.imag <= (*render).fract.i_end)
 	{
 		while (nbr_i.real <= (*render).fract.r_end)
 		{
-			render_pixel(render, nbr_i, (*render).fract.c, px);
+			render_pixel(render, nbr_i, (*render).fract.c, px, iter_max, time);
 			nbr_i.real += scale_width;
 			px.x++;
 		}
@@ -41,25 +47,26 @@ void	render_fract(t_render *render)
 		nbr_i.real = (*render).fract.r_start;
 	}
 }
-
-static void	render_pixel(t_render *render, t_nbr_i nbr_i, t_nbr_i c, \
-							t_pixel_curr px)
+static void     render_pixel(t_render *render, t_nbr_i nbr_i, t_nbr_i c, 
+                                                        t_pixel_curr px, 
+                                                        int iter_max, 
+                                                        double time)
 {
 	int	in_fractol;
 	int	iters;
 
 	in_fractol = 0;
 	if ((*render).fract.type == MANDELBROT)
-		in_fractol = is_mandelbrot(nbr_i, get_itersmax(render), &iters);
+		in_fractol = is_mandelbrot(nbr_i, iter_max, &iters);
 	else if ((*render).fract.type == JULIA)
-		in_fractol = is_julia(nbr_i, c, get_itersmax(render), &iters);
+		in_fractol = is_julia(nbr_i, c, iter_max, &iters);
 	else
 		close_hook(render);
 	if (!in_fractol)
 		mlx_put_pixel((*render).img, px.x, px.y, \
-			get_color(iters, *render, mlx_get_time()));
+			get_color(iters, *render, time));
 	else
-		mlx_put_pixel((*render).img, px.x, px.y, 0x191970);
+		mlx_put_pixel((*render).img, px.x, px.y, INSIDE_COLOR);
 }
 
 static void	get_scale_init_nbri(t_render render, double *scale_width, \

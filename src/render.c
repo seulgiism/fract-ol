@@ -33,6 +33,7 @@ int	render(int fractal_type, t_nbr_i c)
 	mlx_scroll_hook(render.mlx, scroll_hook, &render);
 	mlx_key_hook(render.mlx, key_hook, &render);
 	mlx_resize_hook(render.mlx, resize_hook, &render);
+        mlx_loop_hook(render.mlx, drag_hook, &render);
 	mlx_close_hook(render.mlx, close_hook, &render);
 	render_fract(&render);
 	mlx_loop(render.mlx);
